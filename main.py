@@ -9,11 +9,19 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
     elif operador == '-':
         result = num1 - num2
     elif operador == '/':
-        result = num1 / num2
+        if num2 == 0:
+            print("Cannot divide by 0")
+            return float("nan")
+        else:
+            result = num1 / num2
     elif operador == '*':
         result = num1 * num2
     elif operador == '%':
-        result = num1 % num2
+        if num2 == 0:
+            print("Cannot divide by 0")
+            return float("nan")
+        else:
+            result = num1 % num2
     elif operador == '^':
         result = num1 ** num2
     return result
@@ -23,7 +31,10 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
 def calculadora_v2(num1: float, num2: float, operador: str) -> float:
     operacoes = {
         "+": lambda: num1 + num2,
-        "%": lambda: num1 % num2,
+        "-": lambda: num1 - num2,
+        "/": lambda: num1 / num2 if num2!= 0 else float("nan"),
+        "*": lambda: num1 * num2,
+        "%": lambda: num1 % num2 if num2!= 0 else float("nan"),
         "^": lambda: num1 ** num2,
     }
     funcao = operacoes.get(operador)
