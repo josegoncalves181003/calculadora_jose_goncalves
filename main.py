@@ -68,7 +68,10 @@ def calculadora_v4(num1: float, num2: float, operador: str) -> float:
 
     operacoes = {
         "+": num1 + num2,
-        "%": num1 % num2,
+        "-": num1 - num2,
+        "/": num1 / num2 if num2!= 0 else float("nan"),
+        "*": num1 * num2,
+        "%": num1 % num2 if num2!= 0 else float("nan"),
         "^": num1 ** num2,
     }
 
